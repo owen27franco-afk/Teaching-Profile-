@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Owen Franco | Teacher Portfolio</title>
+  <style>
+    :root {
+      --navy: #1f365c;
+      --blue: #345c96;
+      --gold: #d6a84f;
+      --cream: #fff8e8;
+      --light: #f6f7f9;
+      --white: #ffffff;
+      --text: #202124;
+      --muted: #5f6368;
+      --border: #dfe3ea;
+      --success: #2f5d50;
+      --warning: #8a5a19;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, rgba(31, 54, 92, 0.96), rgba(52, 92, 150, 0.94)),
+        url("https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1600&q=80");
+      background-size: cover;
+      background-position: center;
+      color: var(--white);
+      padding: 86px 24px 76px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 4.7rem);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      max-width: 850px;
+      margin: 0 auto;
+      font-size: 1.16rem;
+      color: #eef3ff;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      padding: 14px 20px;
+      margin: 0;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      font-size: 0.92rem;
+    }
+
+    nav a:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 36px 20px 72px;
+    }
+
+    section {
+      background: var(--white);
+      margin-bottom: 28px;
+      padding: 34px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(31, 54, 92, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      color: var(--navy);
+      font-size: 2rem;
+      margin-bottom: 16px;
+      border-left: 6px solid var(--gold);
+      padding-left: 14px;
+    }
+
+    h3 {
+      color: var(--blue);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    h4 {
+      color: var(--navy);
+      margin-top: 18px;
+      margin-bottom: 6px;
+      font-size: 1.04rem;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    a {
+      color: var(--blue);
+    }
+
+    ul, ol {
+      margin-left: 22px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+      justify-content: center;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: #1f1f1f;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: 0.2s ease;
+      border: none;
+    }
+
+    .button.secondary {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .button.outline {
+      background: transparent;
+      color: var(--navy);
+      border: 2px solid var(--navy);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .intro-grid,
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card-grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .card h3,
+    .card h4 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .highlight {
+      background: var(--cream);
+      border-left: 5px solid var(--gold);
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 18px;
+    }
+
+    .artifact-box {
+      background: #f0f4fb;
+      border: 1px dashed var(--blue);
+      padding: 18px;
+      border-radius: 14px;
+      margin-top: 16px;
+    }
+
+    .artifact-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e9eef7;
+      color: var(--navy);
+      padding: 5px 10px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: bold;
+      margin: 3px 4px 3px 0;
+    }
+
+    .tag.gold {
+      background: var(--cream);
+      color: var(--warning);
+    }
+
+    .tag.green {
+      background: #e6f1ed;
+      color: var(--success);
+    }
+
+    .quote {
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+      color: var(--navy);
+      margin: 24px 0 8px;
+      padding-left: 18px;
+      border-left: 4px solid var(--gold);
+    }
+
+    .sample-work {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      margin-top: 14px;
+    }
+
+    .sample-work .student-label {
+      font-weight: bold;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .rubric-table,
+    .portfolio-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .rubric-table th,
+    .rubric-table td,
+    .portfolio-table th,
+    .portfolio-table td {
+      border: 1px solid var(--border);
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .rubric-table th,
+    .portfolio-table th {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .rubric-table tr:nth-child(even),
+    .portfolio-table tr:nth-child(even) {
+      background: var(--light);
+    }
+
+    .slide-placeholder {
+      border: 2px dashed var(--blue);
+      background: #f7faff;
+      border-radius: 18px;
+      padding: 26px;
+      text-align: center;
+      margin-top: 18px;
+    }
+
+    .mini-slide {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+      border-radius: 18px;
+      padding: 28px;
+      margin-top: 16px;
+    }
+
+    .mini-slide h3 {
+      color: var(--white);
+      margin-top: 0;
+      font-size: 1.6rem;
+    }
+
+    .mini-slide ul {
+      margin-bottom: 0;
+    }
+
+    .file-note {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    footer a {
+      color: #ffe2a1;
+    }
+
+    @media (max-width: 900px) {
+      .intro-grid,
+      .two-column,
+      .card-grid,
+      .card-grid.two {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 24px;
+      }
+
+      .rubric-table,
+      .portfolio-table {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Owen Franco</h1>
+    <p>Secondary Social Science Educator | Historical Inquiry | Civic Engagement | Student-Centered Learning</p>
+    <div class="button-row">
+      <a class="button" href="#artifacts">View Portfolio Artifacts</a>
+      <a class="button secondary" href="resume.pdf" target="_blank">View Resume</a>
+      <a class="button secondary" href="#contact">Contact</a>
+    </div>
+    <p class="file-note" style="color:#eef3ff;">After publishing on GitHub Pages, upload your resume as <strong>resume.pdf</strong> and this button will open it.</p>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#lesson-plan">Lesson Plan</a></li>
+      <li><a href="#student-work">Student Work</a></li>
+      <li><a href="#dbq">DBQ Task</a></li>
+      <li><a href="#supports">Learner Supports</a></li>
+      <li><a href="#classroom">Classroom Tools</a></li>
+      <li><a href="#artifacts">Artifacts</a></li>
+      <li><a href="#contact">Resume</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="intro-grid">
+        <div>
+          <p>My name is Owen Franco, and I am a secondary social science educator committed to helping students think critically about history, government, power, and civic responsibility. My teaching practice is grounded in inquiry, discussion, evidence-based reasoning, and meaningful connections between the past and the present.</p>
+          <p>I believe social science classrooms should help students become stronger readers, writers, thinkers, and participants in society. Students should not only learn what happened in history, but also examine why it happened, who was affected, whose voices were included or excluded, and how those historical patterns continue to shape the world today.</p>
+        </div>
+        <div class="highlight">
+          <h3>Portfolio Focus</h3>
+          <ul>
+            <li>Historical thinking and inquiry-based instruction</li>
+            <li>Vietnam War and Cold War source analysis</li>
+            <li>Culturally responsive and sustaining pedagogy</li>
+            <li>DBQ-style writing and evidence-based reasoning</li>
+            <li>Support for multilingual learners and diverse learning needs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy">
+      <h2>Teaching Philosophy</h2>
+      <p>My teaching philosophy is centered on the belief that students learn best when they are actively engaged, supported, and challenged to make meaning for themselves. In the social science classroom, this means students should not simply memorize historical events or government structures. Instead, they should investigate causes and consequences, analyze competing perspectives, evaluate evidence, and connect historical patterns to present-day issues.</p>
+      <p>I believe effective teaching requires a balance of structure and student agency. Students need clear learning goals, modeled skills, guided practice, and academic scaffolds. At the same time, they also need opportunities to discuss, question, debate, collaborate, and construct their own understanding.</p>
+      <p class="quote">“Teaching history means helping students understand that the world they inherited was shaped by choices, and the world they enter will be shaped by theirs.”</p>
+    </section>
+
+    <section id="lesson-plan">
+      <h2>Featured Lesson Plan</h2>
+      <div class="artifact-header">
+        <div>
+          <span class="tag">11th Grade U.S. History</span>
+          <span class="tag gold">Cold War Unit</span>
+          <span class="tag green">Vietnam War</span>
+        </div>
+        <a class="button outline" href="vietnam-lesson-plan.pdf" target="_blank">Upload/View Lesson Plan PDF</a>
+      </div>
+
+      <h3>Lesson Title: Why Did the United States Increase Its Military Involvement in Vietnam?</h3>
+      <p><strong>Essential Question:</strong> Why did the United States increase its military involvement in Vietnam, and how did Cold War thinking shape that decision?</p>
+      <p><strong>Grade Level:</strong> 11th Grade U.S. History</p>
+      <p><strong>Unit Context:</strong> This lesson is part of a larger Cold War unit. Students have already been introduced to containment, communism, and U.S. foreign policy after World War II. This lesson asks students to apply those ideas to Vietnam by evaluating evidence and making a recommendation as presidential advisers.</p>
+
+      <h3>Standards and Learning Goals</h3>
+      <p><strong>California History-Social Science Standard:</strong> 11.9 Students analyze U.S. foreign policy since World War II, including the origins and geopolitical consequences of the Cold War and containment policy, with attention to the Korean War, the Vietnam War, and the Cuban Missile Crisis.</p>
+      <p><strong>Content Learning Goal:</strong> Students will be able to explain why the United States increased its military involvement in Vietnam by making a claim and supporting it with evidence from multiple perspectives.</p>
+      <p><strong>ELD Learning Goal:</strong> Students will participate in a structured discussion by stating a claim, responding to others’ ideas, and using evidence to support their thinking with appropriate academic language.</p>
+
+      <h3>Lesson Sequence</h3>
+      <ol>
+        <li><strong>Warm-Up:</strong> Students respond to a modern-day draft scenario: Would you serve, resist, or challenge the draft? Why?</li>
+        <li><strong>Mini-Lesson:</strong> Review containment, domino theory, the Geneva Accords, Viet Cong, ARVN, and Gulf of Tonkin Resolution.</li>
+        <li><strong>Response Group Activity:</strong> Students act as advisers to President Johnson and evaluate whether the U.S. should escalate involvement in Vietnam.</li>
+        <li><strong>Evidence T-Chart:</strong> Groups classify evidence as supporting escalation or opposing escalation, then add reasoning for each side.</li>
+        <li><strong>Reteach Moment:</strong> The teacher pauses when students have evidence but weak reasoning and models the difference between a weak and strong response.</li>
+        <li><strong>Round Two Revision:</strong> Students return to groups and strengthen their reasoning using academic sentence frames.</li>
+        <li><strong>Exit Ticket:</strong> Students hypothesize what might have happened if President Johnson had not increased military involvement in 1965.</li>
+      </ol>
+
+      <h3>Formative Assessment</h3>
+      <p>Students are assessed through group discussion, the evidence T-chart, oral recommendations, and the exit ticket. I look for whether students can connect containment to U.S. decision-making and whether they can support claims with evidence rather than relying on general statements like “communism was bad.”</p>
+
+      <div class="artifact-box">
+        <strong>Portfolio Upload Directions:</strong> Save your full lesson plan as <strong>vietnam-lesson-plan.pdf</strong> and upload it to the same GitHub repository as this <strong>index.html</strong> file. The button above will automatically link to it.
+      </div>
+    </section>
+
+    <section id="student-work">
+      <h2>Sample Student Work</h2>
+      <p>The following samples are fictionalized, name-free examples created to demonstrate how student work could be displayed in a professional portfolio. When using real student work, all student names and identifying details should be removed.</p>
+
+      <h3>U.S. History Question 1</h3>
+      <p><strong>Prompt:</strong> Why did the United States increase its military involvement in Vietnam?</p>
+
+      <div class="sample-work">
+        <p class="student-label">Student A Sample Response - Proficient</p>
+        <p>The United States increased its military involvement in Vietnam because leaders believed containment required stopping communism before it spread further in Asia. After Vietnam was divided into a communist North and non-communist South, U.S. leaders worried that if South Vietnam fell, nearby countries might also become communist. This connects to the domino theory. The Gulf of Tonkin Resolution also gave President Johnson more power to use military force without a formal declaration of war. This shows that Cold War fear and political pressure pushed the United States closer to war.</p>
+        <p><strong>Teacher Reflection:</strong> This response shows clear understanding of containment and connects multiple historical details to the larger cause of escalation. The student could improve by explaining the human costs or including an opposing perspective.</p>
+      </div>
+
+      <div class="sample-work">
+        <p class="student-label">Student B Sample Response - Developing</p>
+        <p>The United States got involved in Vietnam because they wanted to stop communism. They thought communism was dangerous and did not want it to spread. President Johnson sent more troops because the U.S. wanted to help South Vietnam.</p>
+        <p><strong>Teacher Reflection:</strong> This student identifies the basic reason for U.S. involvement but needs support explaining how containment, domino theory, and U.S. credibility shaped the decision. This would lead me to provide sentence frames and ask, “Why did leaders think Vietnam mattered beyond Vietnam itself?”</p>
+      </div>
+
+      <h3>U.S. History Question 2</h3>
+      <p><strong>Prompt:</strong> What made the Vietnam War difficult for the United States to win?</p>
+
+      <div class="sample-work">
+        <p class="student-label">Student C Sample Response - Strong</p>
+        <p>The Vietnam War was difficult for the United States to win because American soldiers faced guerrilla warfare, unfamiliar terrain, and unclear goals. The enemy did not always fight in traditional battles, so soldiers struggled to know who or where the enemy was. This made the war frustrating because the U.S. could win battles but still fail to control areas long-term. The war also became unpopular at home as people saw violent images on television and questioned whether the war was worth the cost.</p>
+        <p><strong>Teacher Reflection:</strong> This response moves beyond description and explains impact. The student connects battlefield conditions to public opinion, showing a stronger understanding of both military and domestic consequences.</p>
+      </div>
+
+      <h3>U.S. History Question 3</h3>
+      <p><strong>Prompt:</strong> What does the Fall of Saigon reveal about the impact of the Vietnam War?</p>
+
+      <div class="sample-work">
+        <p class="student-label">Student D Sample Response - Advanced</p>
+        <p>The Fall of Saigon reveals that the Vietnam War ended with a sense of failure, urgency, and abandonment. The image of helicopters evacuating Americans and some Vietnamese allies shows that the United States could not protect everyone who had depended on it. This perspective matters because it shows the war’s impact was not only military, but also emotional and political. For Americans, it raised questions about whether the war had been worth the lives and money spent. For many Vietnamese people, it created fear, displacement, and uncertainty about the future.</p>
+        <p><strong>Teacher Reflection:</strong> This response demonstrates interpretation, evidence use, and attention to multiple perspectives. It would be a strong model for helping students understand how to move from observation to historical significance.</p>
+      </div>
+    </section>
+
+    <section id="dbq">
+      <h2>DBQ-Style Task</h2>
+      <div class="artifact-header">
+        <div>
+          <span class="tag">Document-Based Question</span>
+          <span class="tag gold">Historical Argument Writing</span>
+        </div>
+        <a class="button outline" href="vietnam-dbq-task.pdf" target="_blank">Upload/View DBQ PDF</a>
+      </div>
+
+      <h3>DBQ Question</h3>
+      <p><strong>To what extent was the Vietnam War a turning point in Americans’ trust in government and U.S. foreign policy?</strong></p>
+
+      <h3>Student Task</h3>
+      <p>Using the documents provided and your knowledge of U.S. history, write an evidence-based response that explains whether the Vietnam War changed how Americans viewed their government and the role of the United States in the world.</p>
+
+      <h3>Documents</h3>
+      <div class="card-grid two">
+        <div class="card">
+          <h4>Document A: Gulf of Tonkin Resolution, 1964</h4>
+          <p><strong>Context:</strong> Congress gave President Johnson broad authority to use military force in Southeast Asia after reported attacks in the Gulf of Tonkin.</p>
+          <p><strong>Focus Question:</strong> How did this document expand presidential power during the Vietnam War?</p>
+        </div>
+        <div class="card">
+          <h4>Document B: Soldier Perspective, 1968</h4>
+          <p><strong>Context:</strong> A soldier describes confusion, guerrilla warfare, unclear goals, and frustration with claims of progress.</p>
+          <p><strong>Focus Question:</strong> What does this reveal about the gap between official claims and soldiers’ experiences?</p>
+        </div>
+        <div class="card">
+          <h4>Document C: Kent State Shooting, 1970</h4>
+          <p><strong>Context:</strong> Students protesting the war and the expansion into Cambodia were fired upon by National Guardsmen.</p>
+          <p><strong>Focus Question:</strong> How did the war create conflict within the United States?</p>
+        </div>
+        <div class="card">
+          <h4>Document D: Fall of Saigon, 1975</h4>
+          <p><strong>Context:</strong> U.S. helicopters evacuated Americans and some allies as South Vietnam collapsed.</p>
+          <p><strong>Focus Question:</strong> What did the end of the war suggest about U.S. promises and limits?</p>
+        </div>
+      </div>
+
+      <h3>DBQ Writing Requirements</h3>
+      <ul>
+        <li>Write a clear claim that answers the DBQ question.</li>
+        <li>Use evidence from at least three documents.</li>
+        <li>Explain how the evidence supports your argument.</li>
+        <li>Address at least one counterargument or alternate perspective.</li>
+        <li>Connect the Vietnam War to a broader issue such as presidential power, protest, media, or public trust.</li>
+      </ul>
+
+      <h3>DBQ Rubric</h3>
+      <table class="rubric-table">
+        <tr>
+          <th>Score</th>
+          <th>Criteria</th>
+        </tr>
+        <tr>
+          <td>4 - Advanced</td>
+          <td>Clear historical argument, strong use of multiple documents, thoughtful explanation of significance, and meaningful connection to broader U.S. history.</td>
+        </tr>
+        <tr>
+          <td>3 - Proficient</td>
+          <td>Clear claim, uses evidence from multiple documents, explains how evidence supports the argument, and addresses the DBQ question.</td>
+        </tr>
+        <tr>
+          <td>2 - Developing</td>
+          <td>Basic claim, limited or uneven evidence, mostly summarizes documents, and needs stronger explanation.</td>
+        </tr>
+        <tr>
+          <td>1 - Beginning</td>
+          <td>Unclear claim, little or no accurate evidence, and limited explanation of the historical issue.</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="supports">
+      <h2>Adapted Source Packet & Multilingual Learner Supports</h2>
+      <div class="artifact-header">
+        <div>
+          <span class="tag">Integrated ELD</span>
+          <span class="tag gold">Scaffolded Source Analysis</span>
+          <span class="tag green">Culturally Responsive Reflection</span>
+        </div>
+        <a class="button outline" href="adapted-source-packet.pdf" target="_blank">Upload/View Source Packet</a>
+      </div>
+
+      <h3>Adapted Source Packet: Vietnam War Perspectives</h3>
+      <p>This packet supports students as they analyze multiple perspectives on the Vietnam War, including U.S. policymakers, soldiers, protesters, veterans, and Vietnamese civilians or allies affected by the war’s outcome.</p>
+
+      <div class="card-grid two">
+        <div class="card">
+          <h4>Source A: Government Decision-Making</h4>
+          <p><strong>Guiding Question:</strong> How did containment and domino theory shape U.S. decisions?</p>
+          <ul>
+            <li>Circle words that show fear or urgency.</li>
+            <li>Underline the reason the U.S. believed Vietnam mattered.</li>
+            <li>Explain: How does this source justify escalation?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Source B: Soldier Perspective</h4>
+          <p><strong>Guiding Question:</strong> What made the war confusing or frustrating for soldiers?</p>
+          <ul>
+            <li>Circle details about the environment or battlefield.</li>
+            <li>Underline a sentence that shows uncertainty.</li>
+            <li>Explain: What does this source reveal about the war experience?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Source C: Protest and Kent State</h4>
+          <p><strong>Guiding Question:</strong> How did the war affect American society at home?</p>
+          <ul>
+            <li>Identify who is protesting and why.</li>
+            <li>Describe how the government responded.</li>
+            <li>Explain: What does this reveal about freedom and dissent?</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Source D: Fall of Saigon</h4>
+          <p><strong>Guiding Question:</strong> What does the end of the war reveal about U.S. limits?</p>
+          <ul>
+            <li>Identify who is trying to leave.</li>
+            <li>Describe the mood of the scene.</li>
+            <li>Explain: Why might this event be remembered as abandonment or failure?</li>
+          </ul>
+        </div>
+      </div>
+
+      <h3>Sentence Frame Handout</h3>
+      <div class="highlight">
+        <p><strong>Making a Claim:</strong> The United States increased its involvement in Vietnam because ________.</p>
+        <p><strong>Using Evidence:</strong> One piece of evidence that supports this is ________.</p>
+        <p><strong>Explaining Reasoning:</strong> This matters because ________.</p>
+        <p><strong>Connecting to Perspective:</strong> From the perspective of ________, the war seemed ________ because ________.</p>
+        <p><strong>Agreeing or Disagreeing:</strong> I agree/disagree with ________ because the evidence shows ________.</p>
+        <p><strong>Historical Significance:</strong> This event was significant because it changed ________.</p>
+      </div>
+
+      <h3>Culturally Responsive Lesson Reflection</h3>
+      <p>This lesson connects history to student identity, voice, and lived experience by asking students to consider fairness, government authority, public protest, military service, and the consequences of political decisions. The opening draft scenario allows students to bring their own values and perspectives into the lesson before connecting those ideas to the experiences of young people during the Vietnam era. The lesson also uses multiple perspectives so students can see that the war affected policymakers, soldiers, families, protesters, veterans, and civilians differently.</p>
+    </section>
+
+    <section id="classroom">
+      <h2>Classroom Environment Tools</h2>
+      <div class="card-grid two">
+        <div class="card">
+          <h3>Classroom Norms Slide</h3>
+          <div class="mini-slide">
+            <h3>How We Discuss History</h3>
+            <ul>
+              <li>Respect people, challenge ideas.</li>
+              <li>Use evidence when making claims.</li>
+              <li>Listen to understand before responding.</li>
+              <li>Disagree with maturity and purpose.</li>
+              <li>Connect history to the world around us.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Discussion Protocol</h3>
+          <ol>
+            <li>Read or observe the source carefully.</li>
+            <li>Write one claim or question before speaking.</li>
+            <li>Share evidence from the source.</li>
+            <li>Respond to a peer by agreeing, disagreeing, or adding on.</li>
+            <li>Revise your original thinking after discussion.</li>
+          </ol>
+        </div>
+      </div>
+
+      <h3>Participation Rubric</h3>
+      <table class="rubric-table">
+        <tr>
+          <th>Level</th>
+          <th>Discussion Behaviors</th>
+        </tr>
+        <tr>
+          <td>4 - Advanced</td>
+          <td>Uses evidence, builds on peers’ ideas, asks thoughtful questions, and helps move the discussion forward.</td>
+        </tr>
+        <tr>
+          <td>3 - Proficient</td>
+          <td>Shares a clear idea, uses some evidence, listens to peers, and participates appropriately.</td>
+        </tr>
+        <tr>
+          <td>2 - Developing</td>
+          <td>Participates but needs more evidence, explanation, or connection to the discussion question.</td>
+        </tr>
+        <tr>
+          <td>1 - Beginning</td>
+          <td>Participation is limited, off-topic, or does not yet show understanding of the source or question.</td>
+        </tr>
+      </table>
+
+      <h3>Student Reflection Sample</h3>
+      <div class="sample-work">
+        <p class="student-label">Reflection Prompt: How did your thinking change today?</p>
+        <p>At first, I thought the Vietnam War was mostly about stopping communism. Now I think it was more complicated because the people fighting it did not always understand the goal, and people at home were divided. The Kent State source changed my thinking because it showed that the war did not only hurt people in Vietnam. It also created conflict inside the United States.</p>
+      </div>
+    </section>
+
+    <section id="artifacts">
+      <h2>Embedded Portfolio Artifacts</h2>
+      <p>This section is designed for files you can upload after the website is live. For GitHub Pages, upload each file into the same repository as this <strong>index.html</strong> file, then keep the file names below or update the links.</p>
+
+      <table class="portfolio-table">
+        <tr>
+          <th>Artifact</th>
+          <th>Purpose</th>
+          <th>Link</th>
+        </tr>
+        <tr>
+          <td>Vietnam Lesson Plan</td>
+          <td>Shows standards alignment, lesson sequence, ELD supports, formative assessment, and student-centered instruction.</td>
+          <td><a href="vietnam-lesson-plan.pdf" target="_blank">Open Lesson Plan</a></td>
+        </tr>
+        <tr>
+          <td>Vietnam Slides Presentation</td>
+          <td>Shows lesson delivery, visuals, vocabulary, activity directions, and exit ticket.</td>
+          <td><a href="vietnam-slides.pptx" target="_blank">Open Slides</a></td>
+        </tr>
+        <tr>
+          <td>DBQ-Style Task</td>
+          <td>Shows historical argument writing, document analysis, and assessment criteria.</td>
+          <td><a href="vietnam-dbq-task.pdf" target="_blank">Open DBQ</a></td>
+        </tr>
+        <tr>
+          <td>Adapted Source Packet</td>
+          <td>Shows scaffolds for multilingual learners and students who need structured source analysis support.</td>
+          <td><a href="adapted-source-packet.pdf" target="_blank">Open Source Packet</a></td>
+        </tr>
+        <tr>
+          <td>Classroom Norms and Discussion Tools</td>
+          <td>Shows classroom environment, student expectations, discussion protocol, and participation rubric.</td>
+          <td><a href="classroom-tools.pdf" target="_blank">Open Classroom Tools</a></td>
+        </tr>
+        <tr>
+          <td>Resume</td>
+          <td>Provides professional background, education, fieldwork, and teaching experience.</td>
+          <td><a href="resume.pdf" target="_blank">Open Resume</a></td>
+        </tr>
+      </table>
+
+      <div class="slide-placeholder">
+        <h3>Optional Embedded Google Slides Area</h3>
+        <p>To embed a published Google Slides presentation, replace the placeholder below with the embed code from Google Slides.</p>
+        <p class="file-note">In Google Slides: File → Share → Publish to web → Embed → copy iframe code.</p>
+        <!-- Replace this comment with your Google Slides iframe embed code. Example:
+        <iframe src="YOUR_GOOGLE_SLIDES_EMBED_LINK" frameborder="0" width="960" height="569" allowfullscreen="true"></iframe>
+        -->
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Resume & Contact</h2>
+      <p>Thank you for visiting my professional teaching portfolio. I welcome opportunities to discuss my teaching practice, instructional design, and growth as an educator.</p>
+      <div class="highlight">
+        <p><strong>Name:</strong> Owen Franco</p>
+        <p><strong>Email:</strong> <a href="mailto:owen27franco@gmail.com">owen27franco@gmail.com</a></p>
+        <p><strong>Area of Focus:</strong> Secondary Social Science Education</p>
+        <p><strong>Subjects:</strong> U.S. History, World History, American Government, Social Science</p>
+        <p><strong>Resume:</strong> <a href="resume.pdf" target="_blank">View Resume PDF</a></p>
+      </div>
+      <div class="artifact-box">
+        <strong>Resume Upload Directions:</strong> When your GitHub Pages site is live, upload your resume file to the repository and name it <strong>resume.pdf</strong>. The resume buttons on this site will then work automatically. If you use a different file name, update every <strong>href="resume.pdf"</strong> link in the code.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Owen Franco | Secondary Social Science Educator</p>
+    <p><a href="mailto:owen27franco@gmail.com">owen27franco@gmail.com</a></p>
+  </footer>
+</body>
+</html>
