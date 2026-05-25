@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Owen Franco | Teacher Portfolio</title>
+  <style>
+    :root {
+      --navy: #1f365c;
+      --blue: #345c96;
+      --gold: #d6a84f;
+      --light: #f6f7f9;
+      --white: #ffffff;
+      --text: #202124;
+      --muted: #5f6368;
+      --border: #dfe3ea;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--light);
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+      padding: 80px 24px 70px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    header p {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 1.15rem;
+      color: #eef3ff;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    }
+
+    nav ul {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      padding: 14px 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: bold;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: 0.2s ease;
+      font-size: 0.95rem;
+    }
+
+    nav a:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 36px 20px 70px;
+    }
+
+    section {
+      background: var(--white);
+      margin-bottom: 28px;
+      padding: 34px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(31, 54, 92, 0.08);
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      color: var(--navy);
+      font-size: 2rem;
+      margin-bottom: 16px;
+      border-left: 6px solid var(--gold);
+      padding-left: 14px;
+    }
+
+    h3 {
+      color: var(--blue);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    .intro-grid,
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+      align-items: start;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .card {
+      background: var(--light);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: var(--navy);
+    }
+
+    .highlight {
+      background: #fff8e8;
+      border-left: 5px solid var(--gold);
+      padding: 18px;
+      border-radius: 12px;
+      margin-top: 18px;
+    }
+
+    ul {
+      margin-left: 22px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    .artifact-box {
+      background: #f0f4fb;
+      border: 1px dashed var(--blue);
+      padding: 18px;
+      border-radius: 14px;
+      margin-top: 16px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 22px;
+      justify-content: center;
+    }
+
+    .button {
+      display: inline-block;
+      background: var(--gold);
+      color: #1f1f1f;
+      text-decoration: none;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: bold;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .quote {
+      font-family: Georgia, serif;
+      font-size: 1.35rem;
+      color: var(--navy);
+      margin: 24px 0 8px;
+      padding-left: 18px;
+      border-left: 4px solid var(--gold);
+    }
+
+    footer {
+      text-align: center;
+      padding: 36px 20px;
+      color: var(--white);
+      background: var(--navy);
+    }
+
+    footer a {
+      color: #ffe2a1;
+    }
+
+    @media (max-width: 850px) {
+      .intro-grid,
+      .two-column,
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Owen Franco</h1>
+    <p>Secondary Social Science Educator | Historical Inquiry | Civic Engagement | Student-Centered Learning</p>
+    <div class="button-row">
+      <a class="button" href="#about">About Me</a>
+      <a class="button" href="#artifacts">View Artifacts</a>
+      <a class="button" href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#philosophy">Philosophy</a></li>
+      <li><a href="#environment">Environment</a></li>
+      <li><a href="#instruction">Instruction</a></li>
+      <li><a href="#assessment">Assessment</a></li>
+      <li><a href="#equity">Equity</a></li>
+      <li><a href="#growth">Growth</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="about">
+      <h2>About Me</h2>
+      <div class="intro-grid">
+        <div>
+          <p>My name is Owen Franco, and I am a secondary social science educator committed to helping students think critically about history, government, power, and civic responsibility. My teaching practice is grounded in inquiry, discussion, evidence-based reasoning, and meaningful connections between the past and the present.</p>
+          <p>I believe social science classrooms should help students become stronger readers, writers, thinkers, and participants in society. Students should not only learn what happened in history, but also examine why it happened, who was affected, whose voices were included or excluded, and how those historical patterns continue to shape the world today.</p>
+        </div>
+        <div class="highlight">
+          <h3>Portfolio Focus</h3>
+          <ul>
+            <li>Historical thinking and inquiry-based instruction</li>
+            <li>Civic engagement and student voice</li>
+            <li>Culturally responsive and sustaining pedagogy</li>
+            <li>Source analysis, debate, simulation, and reflection</li>
+            <li>Support for multilingual learners and diverse learning needs</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="philosophy">
+      <h2>Teaching Philosophy</h2>
+      <p>My teaching philosophy is centered on the belief that students learn best when they are actively engaged, supported, and challenged to make meaning for themselves. In the social science classroom, this means students should not simply memorize historical events or government structures. Instead, they should investigate causes and consequences, analyze competing perspectives, evaluate evidence, and connect historical patterns to present-day issues.</p>
+      <p>I believe effective teaching requires a balance of structure and student agency. Students need clear learning goals, modeled skills, guided practice, and academic scaffolds. At the same time, they also need opportunities to discuss, question, debate, collaborate, and construct their own understanding.</p>
+      <p class="quote">“Teaching history means helping students understand that the world they inherited was shaped by choices, and the world they enter will be shaped by theirs.”</p>
+    </section>
+
+    <section id="environment">
+      <h2>Classroom Environment</h2>
+      <p>A strong classroom environment is built through trust, consistency, respect, and meaningful relationships. I work to create a classroom culture where students know their voices matter and where mistakes are treated as part of the learning process.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Respectful Discussion</h3>
+          <p>Students practice listening actively, responding with evidence, and challenging ideas without attacking people.</p>
+        </div>
+        <div class="card">
+          <h3>Clear Expectations</h3>
+          <p>Routines, directions, and success criteria are made visible so students understand what they are doing and why it matters.</p>
+        </div>
+        <div class="card">
+          <h3>Student Voice</h3>
+          <p>Students participate through writing, discussion, group roles, debate, reflection, and collaborative analysis.</p>
+        </div>
+      </div>
+      <div class="artifact-box">
+        <strong>Suggested Artifact:</strong> Add a classroom norms slide, discussion protocol, participation rubric, or student reflection sample here.
+      </div>
+    </section>
+
+    <section id="instruction">
+      <h2>Instructional Design</h2>
+      <p>My instructional design focuses on helping students move from content knowledge to critical analysis. I design lessons with clear objectives, purposeful scaffolds, and opportunities for students to apply their learning through discussion, writing, collaboration, and performance-based tasks.</p>
+      <div class="two-column">
+        <div>
+          <h3>Instructional Strategies</h3>
+          <ul>
+            <li>Primary and secondary source analysis</li>
+            <li>Structured academic discussion</li>
+            <li>Historical simulations and decision-making activities</li>
+            <li>Jigsaw reading and expert group teaching</li>
+            <li>Claim, evidence, and reasoning writing</li>
+            <li>Debates connected to historical and current issues</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Sample Lesson Topics</h3>
+          <ul>
+            <li>The Origins of the Cold War</li>
+            <li>The Vietnam War and competing perspectives</li>
+            <li>The Cuban Missile Crisis</li>
+            <li>The Great Society</li>
+            <li>Globalization in Modern America</li>
+            <li>Political fear and horror films in American culture</li>
+          </ul>
+        </div>
+      </div>
+      <div class="artifact-box">
+        <strong>Suggested Artifact:</strong> Embed a lesson plan, Google Slides presentation, handout, or source analysis packet.
+      </div>
+    </section>
+
+    <section id="assessment">
+      <h2>Assessment & Student Learning</h2>
+      <p>Assessment helps me understand what students know, what they are still developing, and how I need to adjust instruction. I use assessment not only to measure learning, but also to guide learning.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Formative Assessment</h3>
+          <p>Warm-ups, exit tickets, turn-and-talks, source questions, graphic organizers, and quick writes help me monitor student understanding during instruction.</p>
+        </div>
+        <div class="card">
+          <h3>Summative Assessment</h3>
+          <p>Students demonstrate learning through evidence-based writing, debates, document analysis, presentations, and performance tasks.</p>
+        </div>
+        <div class="card">
+          <h3>Feedback</h3>
+          <p>I use clear rubrics, models, sentence frames, and targeted feedback to help students understand how to improve their work.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="equity">
+      <h2>Culturally Responsive Teaching</h2>
+      <p>Culturally responsive teaching is central to my practice because students learn more deeply when instruction connects to their identities, communities, and lived experiences. I include multiple perspectives and help students examine whose voices are centered, whose voices are missing, and how power shapes the way history is remembered.</p>
+      <h3>Supporting Multilingual Learners</h3>
+      <ul>
+        <li>Vocabulary previews and visual supports</li>
+        <li>Sentence frames for discussion and writing</li>
+        <li>Chunked readings and guided questions</li>
+        <li>Partner discussion before whole-class sharing</li>
+        <li>Graphic organizers that support historical thinking</li>
+        <li>Opportunities to connect content to prior knowledge and lived experiences</li>
+      </ul>
+      <div class="artifact-box">
+        <strong>Suggested Artifact:</strong> Add an adapted source packet, multilingual learner support, sentence frame handout, or culturally responsive lesson reflection.
+      </div>
+    </section>
+
+    <section id="technology">
+      <h2>Technology & Engagement</h2>
+      <p>I use technology as a tool to increase access, engagement, collaboration, and student voice. Technology is most effective when it supports the learning goal rather than distracting from it.</p>
+      <div class="two-column">
+        <div>
+          <h3>Technology Tools</h3>
+          <ul>
+            <li>Google Slides for lesson flow and visual support</li>
+            <li>Google Docs for collaborative writing and source analysis</li>
+            <li>Google Forms for quick checks for understanding</li>
+            <li>Digital archives for primary source investigation</li>
+            <li>Video clips and multimedia for historical context</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Engagement Uses</h3>
+          <ul>
+            <li>Digital annotation</li>
+            <li>Student polls and quick responses</li>
+            <li>Collaborative group notes</li>
+            <li>Interactive timelines and maps</li>
+            <li>Digital exit tickets</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="growth">
+      <h2>Professional Growth</h2>
+      <p>I believe strong teaching requires ongoing reflection. As an educator, I constantly ask what worked, what did not work, what students needed, and how I can improve instruction moving forward.</p>
+      <p>One of my major goals as a teacher is to gradually shift more intellectual responsibility to students. While direct instruction and modeling are important, students also need space to question, interpret, debate, and lead meaning-making. I continue to work on creating lessons where students are not only answering questions, but also developing their own explanations, making connections, and supporting their thinking with evidence.</p>
+      <h3>Growth Goals</h3>
+      <ul>
+        <li>Increase student-led discussion and inquiry</li>
+        <li>Use assessment data to make targeted instructional adjustments</li>
+        <li>Strengthen differentiation for multilingual learners and students with learning needs</li>
+        <li>Connect historical content to current events in meaningful ways</li>
+        <li>Balance clear structure with student agency</li>
+      </ul>
+      <div class="artifact-box">
+        <strong>Suggested Artifact:</strong> Add observation feedback, a TPE action plan, CalTPA reflection excerpt, or mentor feedback summary.
+      </div>
+    </section>
+
+    <section id="artifacts">
+      <h2>Featured Artifacts</h2>
+      <p>Use this section to showcase evidence of your teaching practice. In Google Sites, you can replace each box with embedded Google Docs, Slides, PDFs, images, or student work samples with names removed.</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>Lesson Plan</h3>
+          <p>Upload a full lesson plan that shows objectives, standards, scaffolds, student activities, and assessment.</p>
+        </div>
+        <div class="card">
+          <h3>Student Work</h3>
+          <p>Include a student work sample with identifying information removed, along with a short reflection on what it shows.</p>
+        </div>
+        <div class="card">
+          <h3>Assessment Tool</h3>
+          <p>Add a rubric, exit ticket, DBQ-style task, debate guide, or performance assessment.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Resume & Contact</h2>
+      <p>Thank you for visiting my professional teaching portfolio. I welcome opportunities to discuss my teaching practice, instructional design, and growth as an educator.</p>
+      <div class="highlight">
+        <p><strong>Name:</strong> Owen Franco</p>
+        <p><strong>Email:</strong> <a href="mailto:owen27franco@gmail.com">owen27franco@gmail.com</a></p>
+        <p><strong>Area of Focus:</strong> Secondary Social Science Education</p>
+        <p><strong>Subjects:</strong> U.S. History, World History, American Government, Social Science</p>
+      </div>
+      <div class="artifact-box">
+        <strong>Suggested Artifact:</strong> Embed or link a PDF version of your resume here.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Owen Franco | Secondary Social Science Educator</p>
+    <p><a href="mailto:owen27franco@gmail.com">owen27franco@gmail.com</a></p>
+  </footer>
+</body>
+</html>
